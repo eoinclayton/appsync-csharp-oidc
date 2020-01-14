@@ -20,7 +20,9 @@ npm install -g serverless
 ```sh
     npm install
 ```
-4. Set the url of your OIDC provider by updating "https://issuer_goes_here.com" in the serverless.yml file
+4. Set the url of your OIDC provider by updating "https://issuer_goes_here.com" in the serverless.yml 
+file
+![Issuer Setting](docs/img/IssuerSetting.png)
 5. Build the dotnet core code
 ```sh
     ./build.sh
@@ -64,7 +66,7 @@ The deployment will create an AppSync api within your AWS account:
 | Header  | Value |
 | ------------- | ------------- |
 | Content-Type  | application/graphql |
-| Authorization | Put your jwt access token here. No need for "Bearer ". |
+| Authorization | {Put your jwt access token here. No need for "Bearer ".} |
 
 ![Postman headers](docs/img/PostmanSetup.png)
 
