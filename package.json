@@ -1,0 +1,22 @@
+{
+  "name": "appsync-csharp-oidc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eoinclayton/appsync-csharp-oidc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eoinclayton/appsync-csharp-oidc/issues"
+  },
+  "homepage": "https://github.com/eoinclayton/appsync-csharp-oidc#readme",
+  "dependencies": {
+    "serverless-appsync-plugin": "^1.2.0"
+  }
+}

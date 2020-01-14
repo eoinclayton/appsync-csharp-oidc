@@ -1,0 +1,34 @@
+
+service: appsynccsharpoidc
+
+provider:
+  name: aws
+  runtime: dotnetcore2.1
+  region: ap-southeast-2
+
+plugins:
+   - serverless-appsync-plugin
+
+package:
+  individually: true
+
+custom:
+  appSync:
+    authenticationType: OPENID_CONNECT
+    openIdConnectConfig:
+      issuer: https://issuer_goes_here.com
+    mappingTemplates:
+      - dataSource: awsLambdaDataSource
+        type: Query
+        field: helloWorld
+    dataSources:
+      - type: AWS_LAMBDA
+        name: awsLambdaDataSource
+        config:
+          functionName: graphql
+
+functions:
+  graphql:
+    handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
+    package:
+      artifact: bin/release/netcoreapp2.1/hello.zip
