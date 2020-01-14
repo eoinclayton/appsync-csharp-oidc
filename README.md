@@ -25,46 +25,57 @@ npm install -g serverless
 ```sh
     ./build.sh
 ```
-(or build.cmd for Windows)
 6. Deploy
 ```sh
     sls deploy
 ```
 All going well the deployment will success and you'll get back the Service Information
 
-> Service Information
-> service: myappsynctest
-> stage: dev
-> region: ap-southeast-2
-> stack: myappsynctest-dev
-> resources: 14
-> api keys:
->   None
-> appsync api keys:
->   None
-> endpoints:
->   None
-> appsync endpoints:
->   https://dq6kysaxwvhbvit7itwcjd3zqm.appsync-api.ap-southeast-2.amazonaws.com/graphql
-> functions:
->   graphql: myappsynctest-dev-graphql
+
+```sh
+Service Information
+service: myappsynctest
+stage: dev
+region: ap-southeast-2
+stack: myappsynctest-dev
+resources: 14
+api keys:
+   None
+appsync api keys:
+   None
+endpoints:
+   None
+appsync endpoints:
+   https://dq6kysaxwvhbvit7itwcjd3zqm.appsync-api.ap-southeast-2.amazonaws.com/graphql
+functions:
+   graphql: myappsynctest-dev-graphql
+```
 
 Be sure to take note of the appsync endpoint. You'll need it later.
 The deployment will create an AppSync api within your AWS account:
-![Postman headers](docs/img/AWSAppSyncCreated.png)
+![Postman headers](docs/img/AwsAppSyncCreated.png)
 
 ## Once deployed, how to use?
 
 1. Open [Postman](https://www.getpostman.com/)
+
 2. Set the following headers:
+
+| Header  | Value |
+| ------------- | ------------- |
 | Content-Type  | application/graphql |
 | Authorization | Put your jwt access token here. No need for "Bearer ". |
+
 ![Postman headers](docs/img/PostmanSetup.png)
+
 3. HTTP Verb: POST
+
 4. In the Body tab, select GraphQL and set the following body:
 ```javascript
 query {helloWorld}
 ```
+
 5. Enter the appsync endpoint from the deploy step above as the request url
+
 6. Hit send. All going well you'll get back a Hello World response
 ![Postman headers](docs/img/PostmanHelloWorld.png)
